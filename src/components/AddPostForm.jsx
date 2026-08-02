@@ -53,7 +53,7 @@ function AddPostForm({ onAdd, onCancel }) {
         onChange={(event) => setTitle(event.target.value)}
         placeholder="Title"
         required
-        className="mt-3 w-full rounded-lg border-none bg-slate-100 px-4 py-2 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-neutral-700 dark:placeholder-neutral-500"
+        className="mt-3 w-full rounded-lg border-none bg-slate-100 px-4 py-2 placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-neutral-700 dark:placeholder-neutral-300"
       />
 
       <textarea
@@ -62,7 +62,7 @@ function AddPostForm({ onAdd, onCancel }) {
         placeholder="Body"
         required
         rows={3}
-        className="mt-3 w-full rounded-lg border-none bg-slate-100 px-4 py-2 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-neutral-700 dark:placeholder-neutral-500"
+        className="mt-3 w-full rounded-lg border-none bg-slate-100 px-4 py-2 placeholder-slate-500 focus:ring-2 focus:ring-blue-500 focus:outline-none dark:bg-neutral-700 dark:placeholder-neutral-300"
       />
 
       {error && <p className="mt-2 text-sm text-red-500">{error}</p>}
