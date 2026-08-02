@@ -24,19 +24,23 @@ function PostCarousel({ posts, onDelete }) {
       </div>
 
       {pages.length > 1 && (
-        <div className="mt-6 flex flex-wrap justify-center gap-2">
+        <div className="mt-6 flex flex-wrap justify-center gap-1">
           {pages.map((_, pageIndex) => (
             <button
               key={pageIndex}
               type="button"
               aria-label={`Go to page ${pageIndex + 1}`}
               onClick={() => setActivePage(pageIndex)}
-              className={`h-2 w-2 rounded-full ${
-                pageIndex === activePage
-                  ? 'bg-fuchsia-500'
-                  : 'bg-slate-900/20 dark:bg-white/30'
-              }`}
-            />
+              className="flex h-8 w-8 items-center justify-center"
+            >
+              <span
+                className={`block h-2 w-2 rounded-full ${
+                  pageIndex === activePage
+                    ? 'bg-fuchsia-500'
+                    : 'bg-slate-900/20 dark:bg-white/30'
+                }`}
+              />
+            </button>
           ))}
         </div>
       )}
