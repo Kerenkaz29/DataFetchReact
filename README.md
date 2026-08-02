@@ -2,6 +2,8 @@
 
 A React app that fetches posts and comments from the [JSONPlaceholder](https://jsonplaceholder.typicode.com/) API, built as a take-home assessment.
 
+**Live demo:** [https://data-fetch-react-tau.vercel.app/](https://data-fetch-react-tau.vercel.app/)
+
 ## Running locally
 
 Requires Node.js 20.19+ or 22.12+.
