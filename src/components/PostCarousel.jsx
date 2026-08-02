@@ -24,25 +24,57 @@ function PostCarousel({ posts, onDelete }) {
       </div>
 
       {pages.length > 1 && (
-        <div className="mt-6 flex flex-wrap justify-center gap-1">
-          {pages.map((_, pageIndex) => (
+        <>
+          <div className="mt-6 flex items-center justify-center gap-4 sm:hidden">
             <button
-              key={pageIndex}
               type="button"
-              aria-label={`Go to page ${pageIndex + 1}`}
-              onClick={() => setActivePage(pageIndex)}
-              className="flex h-8 w-8 items-center justify-center"
+              onClick={() => setActivePage((current) => current - 1)}
+              disabled={activePage === 0}
+              aria-label="Previous page"
+              className="flex h-10 w-10 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-900/5 disabled:opacity-30 dark:text-neutral-400 dark:hover:bg-white/10"
             >
-              <span
-                className={`block h-2 w-2 rounded-full ${
-                  pageIndex === activePage
-                    ? 'bg-fuchsia-500'
-                    : 'bg-slate-900/20 dark:bg-white/30'
-                }`}
-              />
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+              </svg>
             </button>
-          ))}
-        </div>
+
+            <span className="text-sm text-slate-500 dark:text-neutral-400">
+              Page {activePage + 1} of {pages.length}
+            </span>
+
+            <button
+              type="button"
+              onClick={() => setActivePage((current) => current + 1)}
+              disabled={activePage === pages.length - 1}
+              aria-label="Next page"
+              className="flex h-10 w-10 items-center justify-center rounded-full text-slate-500 transition hover:bg-slate-900/5 disabled:opacity-30 dark:text-neutral-400 dark:hover:bg-white/10"
+            >
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+              </svg>
+            </button>
+          </div>
+
+          <div className="mt-6 hidden flex-wrap justify-center gap-1 sm:flex">
+            {pages.map((_, pageIndex) => (
+              <button
+                key={pageIndex}
+                type="button"
+                aria-label={`Go to page ${pageIndex + 1}`}
+                onClick={() => setActivePage(pageIndex)}
+                className="flex h-8 w-8 items-center justify-center"
+              >
+                <span
+                  className={`block h-2 w-2 rounded-full ${
+                    pageIndex === activePage
+                      ? 'bg-fuchsia-500'
+                      : 'bg-slate-900/20 dark:bg-white/30'
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
+        </>
       )}
     </div>
   )
