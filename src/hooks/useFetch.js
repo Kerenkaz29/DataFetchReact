@@ -12,7 +12,10 @@ function useFetch(url) {
     setError(null)
 
     fetch(url)
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) throw new Error('Request failed')
+        return response.json()
+      })
       .then((json) => {
         if (!cancelled) setData(json)
       })
