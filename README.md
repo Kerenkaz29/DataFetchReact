@@ -50,7 +50,3 @@ graph TD
 - **Delete a post** — every post (including ones fetched from the API) can be deleted from the UI. Since JSONPlaceholder is a mock API and doesn't actually persist changes, deletions are tracked client-side (a list of deleted ids in `localStorage`) and filtered out on render. This is client-only: it doesn't affect the real API or other devices/browsers.
 - **Locally-added posts persist** across page reloads via `localStorage`, and are numbered consistently between the post list and its detail page.
 - **Carousel** on the post list (6 posts per page, with page dots) instead of rendering all 100 at once.
-
-## Known limitations
-
-- Because JSONPlaceholder doesn't persist writes, newly added or "deleted" posts only exist in your browser's `localStorage` — they aren't visible to anyone else and won't survive clearing site data.
