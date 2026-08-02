@@ -1,10 +1,13 @@
-import Title from './components/Title.jsx'
+import { Routes, Route } from 'react-router-dom'
+import HomePage from './pages/HomePage.jsx'
+import PostDetailPage from './pages/PostDetailPage.jsx'
 
 function App() {
   return (
-    <div className="min-h-screen bg-linear-to-br from-slate-900 via-purple-900 to-slate-900 flex flex-col items-center px-6 pt-32 text-white">
-      <Title />
-    </div>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/posts/:id" element={<PostDetailPage />} />
+    </Routes>
   )
 }
 
